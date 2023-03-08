@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><mxGraphModel dx="1075" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    <start action="com.eitg.quasar.nexus.middleware.scxml.handlers.StartHandler" label="start" initial="1" name="" traceField="" traceList="" traceTimeout="" traceCondition="" id="2">
+      <mxCell style="image;html=1;image=clipart/start-button.png" parent="1" vertex="1">
+        <mxGeometry x="110" y="290" width="80" height="80" as="geometry"/>
+      </mxCell>
+    </start>
+    <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler" label="Stop" isfinal="yes" id="3">
+      <mxCell style="image;html=1;image=clipart/plain-stop.png" parent="1" vertex="1">
+        <mxGeometry x="830" y="290" width="80" height="80" as="geometry"/>
+      </mxCell>
+    </stop>
+    <record-event action="io.qsrlabs.nexus.middleware.scxml.handlers.RecordIncomingRequestDetails" label="put a label on incoming &#10;request" name="initial_http_req" id="5">
+      <mxCell style="image;html=1;image=clipart/record-event-details.png" vertex="1" parent="1">
+        <mxGeometry x="240" y="300" width="120" height="60" as="geometry"/>
+      </mxCell>
+    </record-event>
+    <mxCell id="6" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="2" target="5">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.ObjectBuilder" label="build a response&#10;(a JSON object to send back)" response.name="me" response.message="hello, world!" id="7">
+      <mxCell style="image;html=1;image=clipart/build-object.png" vertex="1" parent="1">
+        <mxGeometry x="410" y="300" width="120" height="60" as="geometry"/>
+      </mxCell>
+    </object-builder>
+    <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="5" target="7">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <http-response action="io.qsrlabs.nexus.http.gui.HttpResponseHandler" label="send back the response&#10;prepared previously" response-for="initial_http_req" status="spel:200" body="spel:#session[&quot;response&quot;]" header.Content-Type="application/json" id="9">
+      <mxCell style="image;html=1;image=clipart/http-response.png" vertex="1" parent="1">
+        <mxGeometry x="580" y="300" width="120" height="60" as="geometry"/>
+      </mxCell>
+    </http-response>
+    <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="7" target="9">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="9" target="3">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+  </root>
+</mxGraphModel>
