@@ -36,7 +36,7 @@
     <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="9" target="3" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
-    <http-client-request action="io.qsrlabs.nexus.redis.http.gui.RequestHandler" label="bored api" queue="http-requests" queue-db="queue-db" url="https://www.boredapi.com/api/activity" timeout-ms="spel:2000" request-method="get" headers.Host="www.boredapi.com" headers.Accept="application/json" id="16">
+    <http-client-request action="io.qsrlabs.nexus.redis.http.gui.RequestHandler" label="bored api" queue="http-requests" queue-db="queue-db" url="https://www.boredapi.com/api/activity" timeout-ms="spel:2000" request-method="get" header.Accept="application/json" header.Host="www.boredapi.com" id="16">
       <mxCell style="image;html=1;image=clipart/http-request.png" parent="1" vertex="1">
         <mxGeometry x="430" y="300" width="120" height="60" as="geometry"/>
       </mxCell>
