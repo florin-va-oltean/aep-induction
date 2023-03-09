@@ -77,3 +77,14 @@ Again, check the traces, look at comments in the flow diagram; important points:
 
 1. this step demonstrates how engine takes different paths based on the event received 
 2. also it shows how to use [SpEL expressions](https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html) to navigate in the object hierarchies and use java syntax to change at runtime the execution context
+
+
+# Next ....
+
+We will add:
+
+1. how to modify dispatch events to flows; so far we "cheated" because we put a hint in the request to indicate what flow to execute (query param "flowname"); but this 
+is only for demonstration; in fact, the AEP platform is able to receive an event and decide automatically what flow to start executing 
+2. how to use data model handlers to save/retrieve data across sessions 
+3. how to use other features like timers, cdrs, logs, query databases, etc. 
+
