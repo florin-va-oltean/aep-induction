@@ -64,3 +64,16 @@ What you should pay attention to this time:
 2. we use a new handler for building objects and storing them into session so that they are available as long as session exists; these objects can be created in one instance and available in all other instances, per session. 
 
 # Test step 3
+
+Now, we will actually invoke an [external API](https://www.boredapi.com/api/activity) . 
+
+```bash
+curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_3"
+```
+
+You should receive back a suggestion how to spend your free time (and no, it is not suggesting to work at computer :smile: ). If there is no network connection to internet, an error will be received. 
+
+Again, check the traces, look at comments in the flow diagram; important points:
+
+1. this step demonstrates how engine takes different paths based on the event received 
+2. also it shows how to use [SpEL expressions](https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html) to navigate in the object hierarchies and use java syntax to change at runtime the execution context
