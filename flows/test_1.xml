@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><mxGraphModel dx="965" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169">
+<?xml version="1.0" encoding="UTF-8"?><mxGraphModel dx="1242" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169">
   <root>
     <mxCell id="0"/>
     <mxCell id="1" parent="0"/>
     <start action="com.eitg.quasar.nexus.middleware.scxml.handlers.StartHandler" label="start" initial="1" name="" traceField="" traceList="" traceTimeout="" traceCondition="" id="2">
-      <mxCell style="image;html=1;image=clipart/start-button.png" vertex="1" parent="1">
+      <mxCell style="image;html=1;image=clipart/start-button.png" parent="1" vertex="1">
         <mxGeometry x="110" y="290" width="80" height="80" as="geometry"/>
       </mxCell>
     </start>
     <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler" label="Stop" isfinal="yes" id="3">
-      <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
+      <mxCell style="image;html=1;image=clipart/plain-stop.png" parent="1" vertex="1">
         <mxGeometry x="430" y="290" width="80" height="80" as="geometry"/>
       </mxCell>
     </stop>
-    <mxCell id="4" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="2" target="3">
+    <mxCell id="4" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="2" target="3" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
-    <mxCell id="5" value="this flows does absolutely nothing&#10;&#10;but:&#10;- it shows that you must have a start and at least one stop&#10;- it shows that you can trace any incoming event and see what you receive" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" vertex="1" parent="1">
-      <mxGeometry x="160" y="110" width="320" height="150" as="geometry"/>
+    <mxCell id="5" value="This flows does absolutely nothing, it receives any event it consumes it but it does not produce any response. It acts as a &quot;black hole&quot; for events.&#10;&#10;However, there are some interesting points:&#10;- it shows that you must have a start and at least one stop&#10;- it shows that a transition containing * (star) is matched by any event; these transitions are selected as last option, if a more specific transition is not matched.&#10;- it demonstrates a common pattern to discover the structure of events coming to the flow. Just execute a request, and than see the trace; in trace mode, right click on the start shape, press &quot;View session&quot; and look at the &quot;initial&quot; slot; this is the event decoded as it is presented to the flow by AEP." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" parent="1" vertex="1">
+      <mxGeometry x="110" y="80" width="460" height="180" as="geometry"/>
     </mxCell>
   </root>
 </mxGraphModel>
