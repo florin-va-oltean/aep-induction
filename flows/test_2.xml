@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><mxGraphModel dx="1075" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169">
+<?xml version="1.0" encoding="UTF-8"?><mxGraphModel dx="1242" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169">
   <root>
     <mxCell id="0"/>
     <mxCell id="1" parent="0"/>
@@ -13,31 +13,68 @@
       </mxCell>
     </stop>
     <record-event action="io.qsrlabs.nexus.middleware.scxml.handlers.RecordIncomingRequestDetails" label="put a label on incoming &#10;request" name="initial_http_req" id="5">
-      <mxCell style="image;html=1;image=clipart/record-event-details.png" vertex="1" parent="1">
+      <mxCell style="image;html=1;image=clipart/record-event-details.png" parent="1" vertex="1">
         <mxGeometry x="240" y="300" width="120" height="60" as="geometry"/>
       </mxCell>
     </record-event>
-    <mxCell id="6" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="2" target="5">
+    <mxCell id="6" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="2" target="5" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
     <object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.ObjectBuilder" label="build a response&#10;(a JSON object to send back)" response.name="me" response.message="hello, world!" id="7">
-      <mxCell style="image;html=1;image=clipart/build-object.png" vertex="1" parent="1">
+      <mxCell style="image;html=1;image=clipart/build-object.png" parent="1" vertex="1">
         <mxGeometry x="410" y="300" width="120" height="60" as="geometry"/>
       </mxCell>
     </object-builder>
-    <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="5" target="7">
+    <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="5" target="7" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
     <http-response action="io.qsrlabs.nexus.http.gui.HttpResponseHandler" label="send back the response&#10;prepared previously" response-for="initial_http_req" status="spel:200" body="spel:#session[&quot;response&quot;]" header.Content-Type="application/json" id="9">
-      <mxCell style="image;html=1;image=clipart/http-response.png" vertex="1" parent="1">
+      <mxCell style="image;html=1;image=clipart/http-response.png" parent="1" vertex="1">
         <mxGeometry x="580" y="300" width="120" height="60" as="geometry"/>
       </mxCell>
     </http-response>
-    <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="7" target="9">
+    <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="7" target="9" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
-    <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="9" target="3">
+    <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="9" target="3" edge="1">
       <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="12" value="We use this every time we receive an event and we want later to answer to it; basically we give a name/label to this event so that we can reference it later" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" vertex="1" parent="1">
+      <mxGeometry x="60" y="120" width="220" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;" edge="1" parent="1" source="12" target="5">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="300" y="160"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="14" value="We build a JSON object which will be stored in the current session. Open up the handler (right click, Edit data...) to see its parameters." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" vertex="1" parent="1">
+      <mxGeometry x="540" y="120" width="240" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=0;dashed=1;" edge="1" parent="1" source="14" target="7">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="470" y="155"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="16" value="We send back a response; notice that we use &quot;response-for&quot; and provide the name of request (previously set in REC handler) to determine which request this response is for." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" vertex="1" parent="1">
+      <mxGeometry x="365" y="480" width="210" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;" edge="1" parent="1" source="16" target="9">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="640" y="515"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;" edge="1" parent="1" source="16" target="5">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="300" y="515"/>
+        </Array>
+      </mxGeometry>
     </mxCell>
   </root>
 </mxGraphModel>
