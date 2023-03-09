@@ -44,4 +44,23 @@ context menu to see again the full info about state of engine during execution a
 
 Now that you can check the structure of event you receive (fields, values, etc), let's go forward and look at the next step
 
+# Test step 2
 
+In this step, we will execute the flow "test_2"; you can open it up (left side menu, Design/Flows and press the open button on the row). 
+
+Run the statement:
+
+```bash
+curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_2"
+```
+
+You should receive back the proverbial "Hello World!" message! 
+
+Go ahead and check the trace as well as comments in the flow diagram! 
+
+What you should pay attention to this time:
+
+1. check again the tracing and context available at each state to see how session content changed 
+2. we use a new handler for building objects and storing them into session so that they are available as long as session exists; these objects can be created in one instance and available in all other instances, per session. 
+
+# Test step 3
