@@ -74,5 +74,15 @@
     <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=0;dashed=1;" edge="1" parent="1" source="27" target="20">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
+    <mxCell id="29" value="Notice that status is filled in based on the status of the API response.&#10;Open up the shape to see how this is done." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" vertex="1" parent="1">
+      <mxGeometry x="940" y="500" width="170" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=1;dashed=1;" edge="1" parent="1" source="29" target="9">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="870" y="535"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
   </root>
 </mxGraphModel>
