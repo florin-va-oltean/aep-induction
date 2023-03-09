@@ -20,7 +20,7 @@
     <mxCell id="6" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="2" target="5" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
-    <object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.ObjectBuilder" label="build a response&#10;(a JSON object to send back)" response.name="me" response.message="hello, world!" id="7">
+    <object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.ObjectBuilder" label="build a response&#10;(a JSON object to send back)" response.status="spel:#event[&quot;status&quot;]" response.content="spel:#event[&quot;body&quot;]" id="7">
       <mxCell style="image;html=1;image=clipart/build-object.png" parent="1" vertex="1">
         <mxGeometry x="640" y="300" width="120" height="60" as="geometry"/>
       </mxCell>
