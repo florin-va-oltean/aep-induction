@@ -36,15 +36,15 @@
     <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="9" target="3" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
-    <http-client-request action="io.qsrlabs.nexus.redis.http.gui.RequestHandler" label="call google " queue="http-requests" queue-db="queue-db" url="https://www.google.com" timeout-ms="spel:2000" request-method="get" id="16">
-      <mxCell style="image;html=1;image=clipart/http-request.png" vertex="1" parent="1">
+    <http-client-request action="io.qsrlabs.nexus.redis.http.gui.RequestHandler" label="bored api" queue="http-requests" queue-db="queue-db" url="https://www.boredapi.com/api/activity" timeout-ms="spel:2000" request-method="get" headers.Content-Type="application/json" id="16">
+      <mxCell style="image;html=1;image=clipart/http-request.png" parent="1" vertex="1">
         <mxGeometry x="430" y="300" width="120" height="60" as="geometry"/>
       </mxCell>
     </http-client-request>
-    <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="5" target="16">
+    <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="5" target="16" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
-    <mxCell id="18" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="16" target="7">
+    <mxCell id="18" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="16" target="7" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
   </root>
