@@ -78,6 +78,23 @@ Again, check the traces, look at comments in the flow diagram; important points:
 1. this step demonstrates how engine takes different paths based on the event received 
 2. also it shows how to use [SpEL expressions](https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html) to navigate in the object hierarchies and use java syntax to change at runtime the execution context
 
+# Test step 4
+
+We try to look into API response and check if the activity is fit for more than 1 participant; if it requires only one participant
+we will wait 1 second and try again. 
+
+At this step:
+
+1. we see how we can take decisions based on event fields (same for sessions or local params fields)
+2. we see how we can use SPEL 
+3. and we see tracing when there is an error in the flow 
+
+How to invoke:
+
+```shell
+curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_4"
+```
+
 
 # Next ....
 
