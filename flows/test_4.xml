@@ -87,9 +87,6 @@
     <mxCell id="39" value="We add a decision: if number of participants is smaller than 1, retry the quote (we want to work in a team, of course).&#10;Look at the shape parameters; there is an error in the SPEL expression, but run the test case to see the trace; it should point out the error&#10;&#10;" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" vertex="1" parent="1">
       <mxGeometry x="870" y="485" width="290" height="95" as="geometry"/>
     </mxCell>
-    <mxCell id="40" value="HERE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.75;entryY=1;" edge="1" parent="1" source="39" target="39">
-      <mxGeometry relative="1" as="geometry"/>
-    </mxCell>
     <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.75;entryY=1;dashed=1;" edge="1" parent="1" source="39" target="31">
       <mxGeometry relative="1" as="geometry">
         <Array as="points">
