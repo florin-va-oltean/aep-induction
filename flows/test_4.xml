@@ -84,16 +84,22 @@
     <mxCell id="38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="37" target="9" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
-    <mxCell id="39" value="We add a decision: if number of participants is smaller than 1, retry the quote (we want to work in a team, of course).&#10;Look at the shape parameters; there is an error in the SPEL expression, but run the test case to see the trace; it should point out the error&#10;&#10;" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" vertex="1" parent="1">
+    <mxCell id="39" value="We add a decision: if number of participants is smaller than 1, retry the quote (we want to work in a team, of course).&#10;Look at the shape parameters; there is an error in the SPEL expression, but run the test case to see the trace; it should point out the error&#10;&#10;" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" parent="1" vertex="1">
       <mxGeometry x="870" y="485" width="290" height="95" as="geometry"/>
     </mxCell>
-    <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.75;entryY=1;dashed=1;" edge="1" parent="1" source="39" target="31">
+    <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.75;entryY=1;dashed=1;" parent="1" source="39" target="31" edge="1">
       <mxGeometry relative="1" as="geometry">
         <Array as="points">
           <mxPoint x="820" y="533"/>
           <mxPoint x="820" y="360"/>
         </Array>
       </mxGeometry>
+    </mxCell>
+    <mxCell id="42" value="this is a timer; look at the parameters.&#10;the session will be parked and stored in redis, all JVM resources attached to this session are freed. &#10;when the timer expires, it will notify AEP that will restore the session from redis and continue &#10;" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" vertex="1" parent="1">
+      <mxGeometry x="370" y="590" width="360" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.75;dashed=1;" edge="1" parent="1" source="42" target="33">
+      <mxGeometry relative="1" as="geometry"/>
     </mxCell>
   </root>
 </mxGraphModel>
