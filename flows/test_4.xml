@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><mxGraphModel dx="1286" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169">
+<?xml version="1.0" encoding="UTF-8"?><mxGraphModel dx="1242" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169">
   <root>
     <mxCell id="0"/>
     <mxCell id="1" parent="0"/>
@@ -51,60 +51,52 @@
     <mxCell id="24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="20" target="9" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
-    <mxCell id="25" value="We call a HTTP API. Open up the shape (right click and Edit data...) or hoover the mouse over the shape to see the parameters. " style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" parent="1" vertex="1">
-      <mxGeometry x="180" y="165" width="180" height="70" as="geometry"/>
-    </mxCell>
-    <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.25;entryY=0;dashed=1;" parent="1" source="25" target="16" edge="1">
-      <mxGeometry relative="1" as="geometry"/>
-    </mxCell>
-    <mxCell id="27" value="We build an error message because http response contains a status different than 200 (that's why we took the transition marked as *).&#10;A transition marked as star (*) matches any event and it is evaluated last; the more specific transtions are evaluated first." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" parent="1" vertex="1">
-      <mxGeometry x="300" y="20" width="280" height="100" as="geometry"/>
-    </mxCell>
-    <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=0;dashed=1;" parent="1" source="27" target="20" edge="1">
-      <mxGeometry relative="1" as="geometry"/>
-    </mxCell>
-    <mxCell id="29" value="Notice that status is filled in based on the status of the API response.&#10;Open up the shape to see how this is done." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" parent="1" vertex="1">
-      <mxGeometry x="1160" y="500" width="170" height="80" as="geometry"/>
-    </mxCell>
-    <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.5;entryY=1;dashed=1;" parent="1" source="29" target="9" edge="1">
-      <mxGeometry relative="1" as="geometry">
-        <Array as="points">
-          <mxPoint x="1090" y="535"/>
-        </Array>
-      </mxGeometry>
-    </mxCell>
     <event-generator-handler action="io.qsrlabs.nexus.middleware.scxml.handlers.EvaluateParamsAndGenerateEvent" label="check number of participants" evt.retry="spel:#event[&quot;body&quot;][&quot;participants] gt 1" id="31">
-      <mxCell style="image;html=1;image=clipart/check-list.png" vertex="1" parent="1">
+      <mxCell style="image;html=1;image=clipart/check-list.png" parent="1" vertex="1">
         <mxGeometry x="640" y="300" width="120" height="60" as="geometry"/>
       </mxCell>
     </event-generator-handler>
-    <mxCell id="32" value="http.200" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="16" target="31">
+    <mxCell id="32" value="http.200" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="16" target="31" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
     <clojure-library action="io.qsrlabs.nexus.timers.gui.TimerRequest" label="arm a timer for 1000 ms" timerQueue="arm-timer" timerExpiry="spel: T(System).currentTimeMillis() + 1000L" timerEventName="retry" timerEventType="call_api_again" id="33">
-      <mxCell style="image;html=1;image=clipart/timer.png" vertex="1" parent="1">
+      <mxCell style="image;html=1;image=clipart/timer.png" parent="1" vertex="1">
         <mxGeometry x="640" y="460" width="120" height="60" as="geometry"/>
       </mxCell>
     </clojure-library>
-    <mxCell id="34" value="retry" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="31" target="33">
+    <mxCell id="34" value="retry" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="31" target="33" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
-    <mxCell id="35" value="call_api_again" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="33" target="16">
+    <mxCell id="35" value="call_api_again" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="33" target="16" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
-    <mxCell id="36" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="31" target="37">
+    <mxCell id="36" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="31" target="37" edge="1">
       <mxGeometry relative="1" as="geometry">
         <mxPoint x="840" y="340" as="targetPoint"/>
         <Array as="points"/>
       </mxGeometry>
     </mxCell>
     <object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.ObjectBuilder" label="build response" response="spel:#event[&quot;body&quot;]" id="37">
-      <mxCell style="image;html=1;image=clipart/build-object.png" vertex="1" parent="1">
+      <mxCell style="image;html=1;image=clipart/build-object.png" parent="1" vertex="1">
         <mxGeometry x="840" y="300" width="120" height="60" as="geometry"/>
       </mxCell>
     </object-builder>
-    <mxCell id="38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="37" target="9">
+    <mxCell id="38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="37" target="9" edge="1">
       <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="39" value="We add a decision: if number of participants is smaller than 1, retry the quote (we want to work in a team, of course).&#10;Look at the shape parameters; there is an error in the SPEL expression, but run the test case to see the trace; it should point out the error&#10;&#10;" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;" vertex="1" parent="1">
+      <mxGeometry x="870" y="485" width="290" height="95" as="geometry"/>
+    </mxCell>
+    <mxCell id="40" value="HERE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=1;entryX=0.75;entryY=1;" edge="1" parent="1" source="39" target="39">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;entryX=0.75;entryY=1;dashed=1;" edge="1" parent="1" source="39" target="31">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="820" y="533"/>
+          <mxPoint x="820" y="360"/>
+        </Array>
+      </mxGeometry>
     </mxCell>
   </root>
 </mxGraphModel>
