@@ -14,12 +14,11 @@ This project uses the following components:
 - cdr gw to allow generating cdrs 
 - timer gw to allow to set timers cross-cluster and wake up sessions 
 
-> These components can be seen at 
+> :point_left: These components can be seen at `Runtime view` / `Processes` in the left menu sidebar
 
 Also, we make use of the api at https://www.boredapi.com/api/activity , so you must be able to access from VM this public internet site.
 
-The diagram is the following:
-
+The sequence diagram of this sample application/service is the following:
 ```
 sequenceDiagram
     curl->>httpserver: http get quote
@@ -36,9 +35,18 @@ sequenceDiagram
     rte->>cdr: generate_cdr
     rte-->>httpserver: send response
     httpserver-->>curl: http response
-
-
 ```
+
+Basically, the ideea of the application is the following:
+
+1. you are bored and you ask the service to suggest an activity (you can do it via `curl` or any other http client, even your browser)
+2. http server gw will receive your request, will trigger the rte that will run in turn our application / flow
+3. the application will make a request to an external web service (on internet) that will send back a suggestion of an activity to perform and the expected number of participants for this activity
+4. if the number of participants is 1 (solitary activity) the application will wait 1 sec and request again a new suggestion; until we receive back an activity requiring several participants
+5. when we receive an activity with more than 1 participant, we will generate a cdr and reply back to original http request 
+
+> Note: `http server gw` has a limit to wait for a response from `rte`; if `rte` (including running unspecified number of loops at step 4) is taking longer to 
+respond, `http server gw` will reply back to http client with status 504 (so you can see status 504 in curl command, but this is normal; check traces or increase timeout in `http server gw`) 
 
 # What do to first
 
