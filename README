@@ -14,16 +14,29 @@ This project uses the following components:
 - cdr gw to allow generating cdrs 
 - timer gw to allow to set timers cross-cluster and wake up sessions 
 
+> These components can be seen at 
+
+Also, we make use of the api at https://www.boredapi.com/api/activity , so you must be able to access from VM this public internet site.
+
 The diagram is the following:
 
 ```
 sequenceDiagram
-    curl->http_server_gw: http get quote
-    http_server_gw->rte: process event
-    rte->http_client_gw: http get quote
-    rte->timer_gw: set timer 
-    rte->cdr_gw: generate_cdr
-    rte->http_server_gw: http response
+    curl->>httpserver: http get quote
+    httpserver->>rte: process event
+    loop Until participants more than 1
+        rte->>httpclient: initiate request
+        httpclient->>external_api: http get activity
+        external_api-->>httpclient: http response
+        httpclient-->>rte: process event 
+        rte->>rte: check required participants
+        Note right of rte: if less than 2 participants sleep and request a new activity
+        rte->>timer: set timer if less than 2 participants to try again for a new activity
+    end
+    rte->>cdr: generate_cdr
+    rte-->>httpserver: send response
+    httpserver-->>curl: http response
+
 
 ```
 
