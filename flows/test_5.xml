@@ -59,7 +59,7 @@
     <mxCell id="32" value="http.200" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="16" target="31" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
-    <clojure-library action="io.qsrlabs.nexus.timers.gui.TimerRequest" label="arm a timer for 1000 ms" timerQueue="arm-timer" timerExpiry="spel: 1000L" timerEventName="retry" timerEventType="call_api_again" id="33">
+    <clojure-library action="io.qsrlabs.nexus.timers.gui.TimerRequest" label="arm a timer for 1000 ms" timerQueue="arm-timer" timerExpiry="spel: 1000L" timerEventName="call_api_again" timerEventType="timer" id="33">
       <mxCell style="image;html=1;image=clipart/timer.png" parent="1" vertex="1">
         <mxGeometry x="640" y="460" width="120" height="60" as="geometry"/>
       </mxCell>
