@@ -29,7 +29,7 @@ sequenceDiagram
         external_api-->>httpclient: http response
         httpclient-->>rte: process event 
         rte->>rte: check required participants
-        Note right of rte: if less than 2 participants sleep and request a new activity
+        Note right of rte: if less than 2 participants <br/>sleep and request a new activity
         rte->>timer: set timer if less than 2 participants to try again for a new activity
     end
     rte->>cdr: generate_cdr
