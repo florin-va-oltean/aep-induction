@@ -1,10 +1,15 @@
-# Introduction
 
-This is a sample repo with one flow (`test_<step>`, where <step> is a number) that tries to exemplify how you build a functional app progressively. 
+# Project description 
 
-If you are here it means you successfully cloned the project into AEP GUI; congratulations!
+[TOC]
 
-# Deployment view - components
+## Introduction
+
+This is a sample repo with one flow (`test_<step>`, where <step> is a number) that tries to exemplify how you build a working app progressively; each `test_*` flow is a step based on previous one towards the final app model.
+
+If you are here it means you successfully cloned the project into AEP GUI; congratulations :clap: !
+
+# #Deployment view - components
 
 This project uses the following components:
 
@@ -40,7 +45,7 @@ sequenceDiagram
 Basically, the ideea of the application is the following:
 
 1. you are bored and you ask the service to suggest an activity (you can do it via `curl` or any other http client, even your browser)
-2. http server gw will receive your request, will trigger the rte that will run in turn our application / flow
+2. `http server gw` will receive your request, will trigger the `rte` that will run in turn our application / flow
 3. the application will make a request to an external web service (on internet) that will send back a suggestion of an activity to perform and the expected number of participants for this activity
 4. if the number of participants is 1 (solitary activity) the application will wait 1 sec and request again a new suggestion; until we receive back an activity requiring several participants
 5. when we receive an activity with more than 1 participant, we will generate a cdr and reply back to original http request 
@@ -48,7 +53,7 @@ Basically, the ideea of the application is the following:
 > Note: `http server gw` has a limit to wait for a response from `rte`; if `rte` (including running unspecified number of loops at step 4) is taking longer to 
 respond, `http server gw` will reply back to http client with status 504 (so you can see status 504 in curl command, but this is normal; check traces or increase timeout in `http server gw`) 
 
-# What do to first
+## What do to first
 
 1. select namespace `test` 
 2. go to Design/Libraries and upload all libraries into runtime (all labels should be green)
@@ -56,9 +61,9 @@ respond, `http server gw` will reply back to http client with status 504 (so you
 4. go to Design/Flows and upload all flows into runtime (all labels should be green)
 5. go to "Flow test data"  and select the queuedb (only one option in drop down box) plus the rte instance (`queue name` drop down box; there will be several entries, select the one that starts with `rte`)
 
-Now you are good to go! 
+Now you are good to go :fireworks: ! 
 
-# Test step 1 
+## Test step 1 
 
 In this step, you will execute flow test_1 which does not do anything; but it shows how you can do tracing. 
 
@@ -70,7 +75,7 @@ Go to AEP GUI, Runtime View (left side menu), Traces and from drop down box `Flo
 
 Select it (left side buttons on the table row) to see the traces either as a list or as a diagram. 
 
-## As a list
+### See traces as a list
 
 When you check the session tracing in list mode, for each state traversed by the session there is a row; selecting the row it shows the full context used at that time during execution (current event, current session, any errors, etc).
 
@@ -80,7 +85,7 @@ Select the first line and check the "initial"  slot in the JSON editor; this is 
 
 In this way you can learn the structure of events iteratively; we encourage an exploratory development style. 
 
-## As a diagram
+### See traces as a diagram
 
 When you check session tracing in diagram mode, the states traversed by the session during execution are highlighted in green; you can select a state and right click on it, press "View session" in the 
 context menu to see again the full info about state of engine during execution at this point. 
@@ -88,7 +93,7 @@ context menu to see again the full info about state of engine during execution a
 
 Now that you can check the structure of event you receive (fields, values, etc), let's go forward and look at the next step
 
-# Test step 2
+## Test step 2
 
 In this step, we will execute the flow "test_2"; you can open it up (left side menu, Design/Flows and press the open button on the row). 
 
@@ -107,7 +112,7 @@ What you should pay attention to this time:
 1. check again the tracing and context available at each state to see how session content changed 
 2. we use a new handler for building objects and storing them into session so that they are available as long as session exists; these objects can be created in one instance and available in all other instances, per session. 
 
-# Test step 3
+## Test step 3
 
 Now, we will actually invoke an [external API](https://www.boredapi.com/api/activity) . 
 
@@ -122,7 +127,7 @@ Again, check the traces, look at comments in the flow diagram; important points:
 1. this step demonstrates how engine takes different paths based on the event received 
 2. also it shows how to use [SpEL expressions](https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html) to navigate in the object hierarchies and use java syntax to change at runtime the execution context
 
-# Test step 4
+## Test step 4
 
 We try to look into API response and check if the activity is fit for more than 1 participant; if it requires only one participant
 we will wait 1 second and try again. 
@@ -141,7 +146,7 @@ How to invoke:
 curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_4"
 ```
 
-# Test step 5
+## Test step 5
 
 Now we have a flow that is almost complete; we added a loop to ask for a suggestion until either we receive a valid (requiring more people) or loop counter is
 exceeded. 
@@ -155,7 +160,7 @@ curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_5"
 ```
 
 
-# Next ....
+## Next ....
 
 We will add:
 
