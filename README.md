@@ -4,6 +4,29 @@ This is a sample repo with one flow (`test_<step>`, where <step> is a number) th
 
 If you are here it means you successfully cloned the project into AEP GUI; congratulations!
 
+# Deployment view - components
+
+This project uses the following components:
+
+- http server gw to allow incoming http requests
+- rte component that runs the service flows 
+- http client gw to allow to send http requests to other servers from the flows 
+- cdr gw to allow generating cdrs 
+- timer gw to allow to set timers cross-cluster and wake up sessions 
+
+The diagram is the following:
+
+```
+sequenceDiagram
+    curl->http_server_gw: http get quote
+    http_server_gw->rte: process event
+    rte->http_client_gw: http get quote
+    rte->timer_gw: set timer 
+    rte->cdr_gw: generate_cdr
+    rte->http_server_gw: http response
+
+```
+
 # What do to first
 
 1. select namespace `test` 
