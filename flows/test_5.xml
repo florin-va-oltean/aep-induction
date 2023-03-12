@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><mxGraphModel dx="1242" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169">
+<?xml version="1.0" encoding="UTF-8"?><mxGraphModel dx="2363" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169">
   <root>
     <mxCell id="0"/>
     <mxCell id="1" parent="0"/>
     <start action="com.eitg.quasar.nexus.middleware.scxml.handlers.StartHandler" label="start" initial="1" name="" traceField="" traceList="" traceTimeout="" traceCondition="" id="2">
       <mxCell style="image;html=1;image=clipart/start-button.png" parent="1" vertex="1">
-        <mxGeometry x="110" y="290" width="80" height="80" as="geometry"/>
+        <mxGeometry x="-30" y="290" width="80" height="80" as="geometry"/>
       </mxCell>
     </start>
     <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler" label="Stop" isfinal="yes" id="3">
@@ -14,7 +14,7 @@
     </stop>
     <record-event action="io.qsrlabs.nexus.middleware.scxml.handlers.RecordIncomingRequestDetails" label="put a label on incoming &#10;request" name="initial_http_req" id="5">
       <mxCell style="image;html=1;image=clipart/record-event-details.png" parent="1" vertex="1">
-        <mxGeometry x="240" y="300" width="120" height="60" as="geometry"/>
+        <mxGeometry x="100" y="300" width="120" height="60" as="geometry"/>
       </mxCell>
     </record-event>
     <mxCell id="6" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="2" target="5" edge="1">
@@ -33,9 +33,6 @@
         <mxGeometry x="430" y="300" width="120" height="60" as="geometry"/>
       </mxCell>
     </http-client-request>
-    <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="5" target="16" edge="1">
-      <mxGeometry relative="1" as="geometry"/>
-    </mxCell>
     <object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.ObjectBuilder" label="prepare error" response.content.error="An error occured! cannot fulfill request!" traceColor="#FD0432FF" id="20">
       <mxCell style="image;html=1;image=clipart/build-object.png" parent="1" vertex="1">
         <mxGeometry x="640" y="140" width="120" height="60" as="geometry"/>
@@ -61,12 +58,9 @@
     </mxCell>
     <clojure-library action="io.qsrlabs.nexus.timers.gui.TimerRequest" label="arm a timer for 1000 ms" timerQueue="arm-timer" timerExpiry="spel: 1000L" timerEventName="call_api_again" timerEventType="timer" id="33">
       <mxCell style="image;html=1;image=clipart/timer.png" parent="1" vertex="1">
-        <mxGeometry x="640" y="460" width="120" height="60" as="geometry"/>
+        <mxGeometry x="640" y="740" width="120" height="60" as="geometry"/>
       </mxCell>
     </clojure-library>
-    <mxCell id="34" value="retry" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="31" target="33" edge="1">
-      <mxGeometry relative="1" as="geometry"/>
-    </mxCell>
     <mxCell id="35" value="call_api_again" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="33" target="16" edge="1">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
@@ -82,6 +76,55 @@
       </mxCell>
     </object-builder>
     <mxCell id="38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1" source="37" target="9" edge="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <session-store action="io.qsrlabs.nexus.middleware.scxml.handlers.SessionVar" label="initialize loop&#10;counter" name="loop" iteration="spel: 0" id="39">
+      <mxCell style="image;html=1;image=clipart/variable.png" vertex="1" parent="1">
+        <mxGeometry x="270" y="300" width="120" height="60" as="geometry"/>
+      </mxCell>
+    </session-store>
+    <mxCell id="40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="5" target="39">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="39" target="16">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <event-generator-handler action="io.qsrlabs.nexus.middleware.scxml.handlers.EvaluateParamsAndGenerateEvent" label="check loop counter" evt.break="spel: #session[&quot;loop&quot;][&quot;iteration&quot;] gt 1" id="45">
+      <mxCell style="image;html=1;image=clipart/check-list.png" vertex="1" parent="1">
+        <mxGeometry x="640" y="450" width="120" height="60" as="geometry"/>
+      </mxCell>
+    </event-generator-handler>
+    <mxCell id="46" value="retry" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="31" target="45">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <object-builder action="io.qsrlabs.nexus.middleware.scxml.handlers.ObjectBuilder" label="build response with error" response.description="We received suggestions only for solitary activities, sorry!" id="47">
+      <mxCell style="image;html=1;image=clipart/build-object.png" vertex="1" parent="1">
+        <mxGeometry x="840" y="450" width="120" height="60" as="geometry"/>
+      </mxCell>
+    </object-builder>
+    <mxCell id="48" value="break" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="45" target="47">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <http-response action="io.qsrlabs.nexus.http.gui.HttpResponseHandler" label="send back response" response-for="initial_http_req" status="spel: 404" body="spel: #session[&quot;response&quot;]" header.Content-Type="application/json" id="50">
+      <mxCell style="image;html=1;image=clipart/http-response.png" vertex="1" parent="1">
+        <mxGeometry x="1030" y="450" width="120" height="60" as="geometry"/>
+      </mxCell>
+    </http-response>
+    <session-store action="io.qsrlabs.nexus.middleware.scxml.handlers.SessionVar" label="increment loop counter" name="loop" iteration="spel: #session[&quot;loop&quot;][&quot;iteration&quot;] + 1" id="51">
+      <mxCell style="image;html=1;image=clipart/variable.png" vertex="1" parent="1">
+        <mxGeometry x="640" y="600" width="120" height="60" as="geometry"/>
+      </mxCell>
+    </session-store>
+    <mxCell id="52" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="45" target="51">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="51" target="33">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="47" target="50">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="50" target="3">
       <mxGeometry relative="1" as="geometry"/>
     </mxCell>
   </root>
