@@ -133,10 +133,25 @@ At this step:
 2. we see how we can use SPEL 
 3. and we see tracing when there is an error in the flow 
 
+> In trace based on diagram, the shape with error is highlighted in orange or red (depending on severity) and when you check the contect you will see also the error described.
+
 How to invoke:
 
 ```shell
 curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_4"
+```
+
+# Test step 5
+
+Now we have a flow that is almost complete; we added a loop to ask for a suggestion until either we receive a valid (requiring more people) or loop counter is
+exceeded. 
+
+> Notice that we fixed the error in step 4 
+
+If it is exceeded, we return http 404 (not found) and a short message describing the situation. 
+
+```shell
+curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_5"
 ```
 
 
@@ -147,5 +162,6 @@ We will add:
 1. how to modify dispatch events to flows; so far we "cheated" because we put a hint in the request to indicate what flow to execute (query param "flowname"); but this 
 is only for demonstration; in fact, the AEP platform is able to receive an event and decide automatically what flow to start executing 
 2. how to use data model handlers to save/retrieve data across sessions 
-3. how to use other features like timers, cdrs, logs, query databases, etc. 
+3. how to generate cdrs ()
+
 
