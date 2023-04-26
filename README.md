@@ -183,9 +183,20 @@ you need to specify:
   - which URLs are asigned to SOAP requests; for these URLs the server gateway will treat requests as SOAP and will attempt to decode it based on WSDL specs
   - which binding from WSDL to use based on `Content-Type` http header
   - which operation from WSDL to use based on `soap action`; soap action is retrieved from http header `SOAPAction` (in case of SOAP 1.1) or http header `Content-Type` (in case of SOAP 1.2); if no `soap action` is specified, you can configure a defualt operation to use 
-
+  - here is a sample of `soap` section added to http server config; it specified both default operation (`none`) as well as `sendSms` action to operation mapping. 
 ```shell
- 
+ "soap": {
+      "/gp/services/SendSmsPx21": {
+        "wsdl": "file:///tmp/sms.wsdl",
+        "content-type": {
+          "text/xml": "SendSmsBinding"
+        },
+        "soap-action": {
+          "none": "sendSms",
+          "sendSms":"sendSms"
+        }
+      }
+    },
 ```
 
 4. You can use the new palette shapes that are generated after point 1 to build a new flow 
