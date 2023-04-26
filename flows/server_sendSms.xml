@@ -40,7 +40,7 @@
       <soap-message action="io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_sendSms_response"
                     label="prepare answer to&#xA; sendSms"
                     name="responseSendSms"
-                    Envelope.Body.sendSmsResponse.result="spel:#initial[&#34;body&#34;][&#34;custom&#34;][&#34;ns1:Security&#34;]?.get(&#34;Username&#34;) + &#34;, it is ok&#34;"
+                    Envelope.Body.sendSmsResponse.result="spel:#initial[&#34;body&#34;][&#34;custom&#34;][&#34;ns1:Security&#34;]?.get(&#34;Username&#34;) + &#34;, it is ok, this is a mock service only.&#34;"
                     meta.wsdlName="sms.wsdl_SendSmsBinding"
                     meta.wsdlUrl="file:///tmp/sms.wsdl"
                     meta.wsdlBinding="SendSmsBinding"
@@ -85,6 +85,13 @@
               target="11"
               edge="1">
          <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="13"
+              value="We say hello to user making the request.&#xA;Here we are using a special SPEL operator (?.) to protect against null values, because the soap header may or may not be present.&#xA;Please read https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html &#34;Safe navigation operator&#34;"
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="275" y="490" width="275" height="130" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
