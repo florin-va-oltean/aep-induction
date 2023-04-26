@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1242" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1"
+              fold="1"
+              page="1"
+              pageScale="1"
+              pageWidth="826"
+              pageHeight="1169">
+   <root>
+      <mxCell id="0"/>
+      <mxCell id="1" parent="0"/>
+      <start action="com.eitg.quasar.nexus.middleware.scxml.handlers.StartHandler"
+             label="receive soap request"
+             initial="1"
+             name=""
+             traceField=""
+             traceList=""
+             traceTimeout=""
+             traceCondition=""
+             id="2">
+         <mxCell style="image;html=1;image=clipart/start-button.png" parent="1" vertex="1">
+            <mxGeometry x="50" y="370" width="80" height="80" as="geometry"/>
+         </mxCell>
+      </start>
+      <record-event action="io.qsrlabs.nexus.middleware.scxml.handlers.RecordIncomingRequestDetails"
+                    label="record req details"
+                    name="soap-req"
+                    id="3">
+         <mxCell style="image;html=1;image=clipart/record-event-details.png" parent="1"
+                 vertex="1">
+            <mxGeometry x="180" y="380" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </record-event>
+      <mxCell id="4" value="*" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;"
+              parent="1"
+              source="2"
+              target="3"
+              edge="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <soap-message action="io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_sendSms_response"
+                    label="prepare answer to&#xA; sendSms"
+                    name="responseSendSms"
+                    Envelope.Body.sendSmsResponse.result="spel:#initial[&#34;body&#34;][&#34;custom&#34;][&#34;ns1:Security&#34;]?.get(&#34;Username&#34;) + &#34;, it is ok&#34;"
+                    meta.wsdlName="sms.wsdl_SendSmsBinding"
+                    meta.wsdlUrl="file:///tmp/sms.wsdl"
+                    meta.wsdlBinding="SendSmsBinding"
+                    meta.wsdlOperation="sendSms"
+                    id="7">
+         <mxCell style="image;html=1;image=clipart/soap-response.png" parent="1" vertex="1">
+            <mxGeometry x="350" y="380" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </soap-message>
+      <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1"
+              source="3"
+              target="7"
+              edge="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <http-response action="io.qsrlabs.nexus.http.gui.HttpResponseHandler"
+                     label="Send the actual &#xA;http response"
+                     response-for="soap-req"
+                     status="spel:200"
+                     body="spel:#session[&#34;responseSendSms&#34;]"
+                     id="9">
+         <mxCell style="image;html=1;image=clipart/http-response.png" parent="1" vertex="1">
+            <mxGeometry x="530" y="380" width="120" height="60" as="geometry"/>
+         </mxCell>
+      </http-response>
+      <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1"
+              source="7"
+              target="9"
+              edge="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
+            label="Stop"
+            isfinal="yes"
+            id="11">
+         <mxCell style="image;html=1;image=clipart/plain-stop.png" parent="1" vertex="1">
+            <mxGeometry x="730" y="370" width="80" height="80" as="geometry"/>
+         </mxCell>
+      </stop>
+      <mxCell id="12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1"
+              source="9"
+              target="11"
+              edge="1">
+         <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+   </root>
+</mxGraphModel>
