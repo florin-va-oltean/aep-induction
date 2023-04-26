@@ -199,7 +199,9 @@ you need to specify:
     },
 ```
 
-4. You can use the new palette shapes that are generated after point 1 to build a new flow 
+4. You can use the new palette shapes that are generated after point 1 to build a new flow
+    - for responding to soap requests (act as a server) you must configure http server gateway as per point 3 above
+    - for making soap requests and receiving back answers, there is no special configuration to do excepting 1 and 2 above. 
 
 that's all
 
