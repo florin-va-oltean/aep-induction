@@ -1,0 +1,1073 @@
+{
+  "__skip": {}
+  
+  ,"io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_getSmsDeliveryStatus_request": {
+    "title": "Build an object ready to be serialized into a SOAP message",
+    "help": [
+      "This handler builds into the session an object that has the correct structure to serialize a SOAP message. It supports SOAP 1.2 and WSDL 1.1"
+    ],
+    "attributes": {
+        "name": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "name of the object in session where payload is generated; this should be used in http client handler"
+        }
+        
+        ,"Envelope.Header.token": {
+          "type": "",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is "
+        }
+        
+        ,"Envelope.Body.getSmsDeliveryStatus.requestIdentifier": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"meta.wsdlName": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sms.wsdl_SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the name of wsdl"
+        },
+        "meta.wsdlUrl": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "file:///tmp/sms.wsdl",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the url of wsdl at time of generation; it will be used at runtime as well, so it must be accessible from http client gw"
+        },
+        "meta.wsdlBinding": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the binding used from wsdl"
+        },
+        "meta.wsdlOperation": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "getSmsDeliveryStatus",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the operation used from wsdl"
+        }
+    },
+    "events": [
+        "returns same events as the one received"
+    ],
+    "noextraevents": true,
+    "shapeStyle": "image;html=1;image=clipart/soap-request.png",
+    "label": "getSmsDeliveryStatus",
+    "explanation": "Build a SOAP request object",
+    "searchtags": "soap wsdl",
+    "showExplanation": true,
+    "showLabel": true,
+    "width": 120,
+    "height": 60,
+    "xmltag": "soap-message"
+  }
+  
+  ,"io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_getSmsDeliveryStatus_response": {
+    "title": "Build an object ready to be serialized into a SOAP message",
+    "help": [
+      "This handler builds into the session an object that has the correct structure to serialize a SOAP message. It supports SOAP 1.2 and WSDL 1.1"
+    ],
+    "attributes": {
+        "name": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "name of the object in session where payload is generated; this should be used in http client handler"
+        }
+        
+        ,"Envelope.Body.getSmsDeliveryStatusResponse.results.0.result.address": {
+          "type": "anyURI",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is anyURI"
+        }
+        
+        ,"Envelope.Body.getSmsDeliveryStatusResponse.results.0.result.deliveryStatus": {
+          "type": "DeliveryStatus",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is DeliveryStatus"
+        }
+        
+        ,"meta.wsdlName": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sms.wsdl_SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the name of wsdl"
+        },
+        "meta.wsdlUrl": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "file:///tmp/sms.wsdl",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the url of wsdl at time of generation; it will be used at runtime as well, so it must be accessible from http client gw"
+        },
+        "meta.wsdlBinding": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the binding used from wsdl"
+        },
+        "meta.wsdlOperation": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "getSmsDeliveryStatus",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the operation used from wsdl"
+        }
+    },
+    "events": [
+        "returns same events as the one received"
+    ],
+    "noextraevents": true,
+    "shapeStyle": "image;html=1;image=clipart/soap-response.png",
+    "label": "getSmsDeliveryStatus",
+    "explanation": "Build a SOAP response object",
+    "searchtags": "soap wsdl",
+    "showExplanation": true,
+    "showLabel": true,
+    "width": 120,
+    "height": 60,
+    "xmltag": "soap-message"
+  }
+  
+  ,"io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_getSmsDeliveryStatus_fault": {
+    "title": "Build an object ready to be serialized into a SOAP message",
+    "help": [
+      "This handler builds into the session an object that has the correct structure to serialize a SOAP message. It supports SOAP 1.2 and WSDL 1.1"
+    ],
+    "attributes": {
+        "name": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "name of the object in session where payload is generated; this should be used in http client handler"
+        }
+        
+        ,"Envelope.Body.Fault.faultcode": {
+          "type": "QName",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is QName"
+        }
+        
+        ,"Envelope.Body.Fault.faultstring.__attrs.lang": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.Fault.faultstring": {
+          "type": "",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is "
+        }
+        
+        ,"Envelope.Body.Fault.faultactor": {
+          "type": "anyURI",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is anyURI"
+        }
+        
+        ,"meta.wsdlName": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sms.wsdl_SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the name of wsdl"
+        },
+        "meta.wsdlUrl": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "file:///tmp/sms.wsdl",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the url of wsdl at time of generation; it will be used at runtime as well, so it must be accessible from http client gw"
+        },
+        "meta.wsdlBinding": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the binding used from wsdl"
+        },
+        "meta.wsdlOperation": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "getSmsDeliveryStatus",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the operation used from wsdl"
+        }
+    },
+    "events": [
+        "returns same events as the one received"
+    ],
+    "noextraevents": true,
+    "shapeStyle": "image;html=1;image=clipart/soap-fault.png",
+    "label": "getSmsDeliveryStatus",
+    "explanation": "Build a SOAP fault object",
+    "searchtags": "soap wsdl",
+    "showExplanation": true,
+    "showLabel": true,
+    "width": 120,
+    "height": 60,
+    "xmltag": "soap-message"
+  }
+  
+  ,"io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_sendSms_request": {
+    "title": "Build an object ready to be serialized into a SOAP message",
+    "help": [
+      "This handler builds into the session an object that has the correct structure to serialize a SOAP message. It supports SOAP 1.2 and WSDL 1.1"
+    ],
+    "attributes": {
+        "name": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "name of the object in session where payload is generated; this should be used in http client handler"
+        }
+        
+        ,"Envelope.Body.sendSms.addresses.0.addresses": {
+          "type": "anyURI",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is anyURI"
+        }
+        
+        ,"Envelope.Body.sendSms.senderName": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSms.chargings.0.charging.description": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSms.chargings.0.charging.currency": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSms.chargings.0.charging.amount": {
+          "type": "decimal",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is decimal"
+        }
+        
+        ,"Envelope.Body.sendSms.chargings.0.charging.code": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSms.message": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSms.receiptRequest.endpoint": {
+          "type": "anyURI",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is anyURI"
+        }
+        
+        ,"Envelope.Body.sendSms.receiptRequest.interfaceName": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSms.receiptRequest.correlator": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"meta.wsdlName": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sms.wsdl_SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the name of wsdl"
+        },
+        "meta.wsdlUrl": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "file:///tmp/sms.wsdl",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the url of wsdl at time of generation; it will be used at runtime as well, so it must be accessible from http client gw"
+        },
+        "meta.wsdlBinding": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the binding used from wsdl"
+        },
+        "meta.wsdlOperation": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sendSms",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the operation used from wsdl"
+        }
+    },
+    "events": [
+        "returns same events as the one received"
+    ],
+    "noextraevents": true,
+    "shapeStyle": "image;html=1;image=clipart/soap-request.png",
+    "label": "sendSms",
+    "explanation": "Build a SOAP request object",
+    "searchtags": "soap wsdl",
+    "showExplanation": true,
+    "showLabel": true,
+    "width": 120,
+    "height": 60,
+    "xmltag": "soap-message"
+  }
+  
+  ,"io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_sendSms_response": {
+    "title": "Build an object ready to be serialized into a SOAP message",
+    "help": [
+      "This handler builds into the session an object that has the correct structure to serialize a SOAP message. It supports SOAP 1.2 and WSDL 1.1"
+    ],
+    "attributes": {
+        "name": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "name of the object in session where payload is generated; this should be used in http client handler"
+        }
+        
+        ,"Envelope.Body.sendSmsResponse.result": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"meta.wsdlName": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sms.wsdl_SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the name of wsdl"
+        },
+        "meta.wsdlUrl": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "file:///tmp/sms.wsdl",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the url of wsdl at time of generation; it will be used at runtime as well, so it must be accessible from http client gw"
+        },
+        "meta.wsdlBinding": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the binding used from wsdl"
+        },
+        "meta.wsdlOperation": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sendSms",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the operation used from wsdl"
+        }
+    },
+    "events": [
+        "returns same events as the one received"
+    ],
+    "noextraevents": true,
+    "shapeStyle": "image;html=1;image=clipart/soap-response.png",
+    "label": "sendSms",
+    "explanation": "Build a SOAP response object",
+    "searchtags": "soap wsdl",
+    "showExplanation": true,
+    "showLabel": true,
+    "width": 120,
+    "height": 60,
+    "xmltag": "soap-message"
+  }
+  
+  ,"io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_sendSms_fault": {
+    "title": "Build an object ready to be serialized into a SOAP message",
+    "help": [
+      "This handler builds into the session an object that has the correct structure to serialize a SOAP message. It supports SOAP 1.2 and WSDL 1.1"
+    ],
+    "attributes": {
+        "name": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "name of the object in session where payload is generated; this should be used in http client handler"
+        }
+        
+        ,"Envelope.Body.Fault.faultcode": {
+          "type": "QName",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is QName"
+        }
+        
+        ,"Envelope.Body.Fault.faultstring.__attrs.lang": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.Fault.faultstring": {
+          "type": "",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is "
+        }
+        
+        ,"Envelope.Body.Fault.faultactor": {
+          "type": "anyURI",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is anyURI"
+        }
+        
+        ,"meta.wsdlName": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sms.wsdl_SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the name of wsdl"
+        },
+        "meta.wsdlUrl": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "file:///tmp/sms.wsdl",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the url of wsdl at time of generation; it will be used at runtime as well, so it must be accessible from http client gw"
+        },
+        "meta.wsdlBinding": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the binding used from wsdl"
+        },
+        "meta.wsdlOperation": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sendSms",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the operation used from wsdl"
+        }
+    },
+    "events": [
+        "returns same events as the one received"
+    ],
+    "noextraevents": true,
+    "shapeStyle": "image;html=1;image=clipart/soap-fault.png",
+    "label": "sendSms",
+    "explanation": "Build a SOAP fault object",
+    "searchtags": "soap wsdl",
+    "showExplanation": true,
+    "showLabel": true,
+    "width": 120,
+    "height": 60,
+    "xmltag": "soap-message"
+  }
+  
+  ,"io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_sendSmsLogo_request": {
+    "title": "Build an object ready to be serialized into a SOAP message",
+    "help": [
+      "This handler builds into the session an object that has the correct structure to serialize a SOAP message. It supports SOAP 1.2 and WSDL 1.1"
+    ],
+    "attributes": {
+        "name": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "name of the object in session where payload is generated; this should be used in http client handler"
+        }
+        
+        ,"Envelope.Body.sendSmsLogo.addresses.0.addresses": {
+          "type": "anyURI",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is anyURI"
+        }
+        
+        ,"Envelope.Body.sendSmsLogo.senderName": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSmsLogo.charging.description": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSmsLogo.charging.currency": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSmsLogo.charging.amount": {
+          "type": "decimal",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is decimal"
+        }
+        
+        ,"Envelope.Body.sendSmsLogo.charging.code": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSmsLogo.image": {
+          "type": "",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is "
+        }
+        
+        ,"Envelope.Body.sendSmsLogo.smsFormat": {
+          "type": "SmsFormat",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is SmsFormat"
+        }
+        
+        ,"Envelope.Body.sendSmsLogo.receiptRequest.endpoint": {
+          "type": "anyURI",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is anyURI"
+        }
+        
+        ,"Envelope.Body.sendSmsLogo.receiptRequest.interfaceName": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSmsLogo.receiptRequest.correlator": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"meta.wsdlName": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sms.wsdl_SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the name of wsdl"
+        },
+        "meta.wsdlUrl": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "file:///tmp/sms.wsdl",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the url of wsdl at time of generation; it will be used at runtime as well, so it must be accessible from http client gw"
+        },
+        "meta.wsdlBinding": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the binding used from wsdl"
+        },
+        "meta.wsdlOperation": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sendSmsLogo",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the operation used from wsdl"
+        }
+    },
+    "events": [
+        "returns same events as the one received"
+    ],
+    "noextraevents": true,
+    "shapeStyle": "image;html=1;image=clipart/soap-request.png",
+    "label": "sendSmsLogo",
+    "explanation": "Build a SOAP request object",
+    "searchtags": "soap wsdl",
+    "showExplanation": true,
+    "showLabel": true,
+    "width": 120,
+    "height": 60,
+    "xmltag": "soap-message"
+  }
+  
+  ,"io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_sendSmsLogo_response": {
+    "title": "Build an object ready to be serialized into a SOAP message",
+    "help": [
+      "This handler builds into the session an object that has the correct structure to serialize a SOAP message. It supports SOAP 1.2 and WSDL 1.1"
+    ],
+    "attributes": {
+        "name": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "name of the object in session where payload is generated; this should be used in http client handler"
+        }
+        
+        ,"Envelope.Body.sendSmsLogoResponse.result": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"meta.wsdlName": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sms.wsdl_SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the name of wsdl"
+        },
+        "meta.wsdlUrl": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "file:///tmp/sms.wsdl",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the url of wsdl at time of generation; it will be used at runtime as well, so it must be accessible from http client gw"
+        },
+        "meta.wsdlBinding": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the binding used from wsdl"
+        },
+        "meta.wsdlOperation": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sendSmsLogo",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the operation used from wsdl"
+        }
+    },
+    "events": [
+        "returns same events as the one received"
+    ],
+    "noextraevents": true,
+    "shapeStyle": "image;html=1;image=clipart/soap-response.png",
+    "label": "sendSmsLogo",
+    "explanation": "Build a SOAP response object",
+    "searchtags": "soap wsdl",
+    "showExplanation": true,
+    "showLabel": true,
+    "width": 120,
+    "height": 60,
+    "xmltag": "soap-message"
+  }
+  
+  ,"io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_sendSmsLogo_fault": {
+    "title": "Build an object ready to be serialized into a SOAP message",
+    "help": [
+      "This handler builds into the session an object that has the correct structure to serialize a SOAP message. It supports SOAP 1.2 and WSDL 1.1"
+    ],
+    "attributes": {
+        "name": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "name of the object in session where payload is generated; this should be used in http client handler"
+        }
+        
+        ,"Envelope.Body.Fault.faultcode": {
+          "type": "QName",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is QName"
+        }
+        
+        ,"Envelope.Body.Fault.faultstring.__attrs.lang": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.Fault.faultstring": {
+          "type": "",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is "
+        }
+        
+        ,"Envelope.Body.Fault.faultactor": {
+          "type": "anyURI",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is anyURI"
+        }
+        
+        ,"meta.wsdlName": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sms.wsdl_SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the name of wsdl"
+        },
+        "meta.wsdlUrl": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "file:///tmp/sms.wsdl",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the url of wsdl at time of generation; it will be used at runtime as well, so it must be accessible from http client gw"
+        },
+        "meta.wsdlBinding": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the binding used from wsdl"
+        },
+        "meta.wsdlOperation": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sendSmsLogo",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the operation used from wsdl"
+        }
+    },
+    "events": [
+        "returns same events as the one received"
+    ],
+    "noextraevents": true,
+    "shapeStyle": "image;html=1;image=clipart/soap-fault.png",
+    "label": "sendSmsLogo",
+    "explanation": "Build a SOAP fault object",
+    "searchtags": "soap wsdl",
+    "showExplanation": true,
+    "showLabel": true,
+    "width": 120,
+    "height": 60,
+    "xmltag": "soap-message"
+  }
+  
+  ,"io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_sendSmsRingtone_request": {
+    "title": "Build an object ready to be serialized into a SOAP message",
+    "help": [
+      "This handler builds into the session an object that has the correct structure to serialize a SOAP message. It supports SOAP 1.2 and WSDL 1.1"
+    ],
+    "attributes": {
+        "name": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "name of the object in session where payload is generated; this should be used in http client handler"
+        }
+        
+        ,"Envelope.Body.sendSmsRingtone.addresses.0.addresses": {
+          "type": "anyURI",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is anyURI"
+        }
+        
+        ,"Envelope.Body.sendSmsRingtone.senderName": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSmsRingtone.charging.description": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSmsRingtone.charging.currency": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSmsRingtone.charging.amount": {
+          "type": "decimal",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is decimal"
+        }
+        
+        ,"Envelope.Body.sendSmsRingtone.charging.code": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSmsRingtone.ringtone": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSmsRingtone.smsFormat": {
+          "type": "SmsFormat",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is SmsFormat"
+        }
+        
+        ,"Envelope.Body.sendSmsRingtone.receiptRequest.endpoint": {
+          "type": "anyURI",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is anyURI"
+        }
+        
+        ,"Envelope.Body.sendSmsRingtone.receiptRequest.interfaceName": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.sendSmsRingtone.receiptRequest.correlator": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"meta.wsdlName": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sms.wsdl_SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the name of wsdl"
+        },
+        "meta.wsdlUrl": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "file:///tmp/sms.wsdl",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the url of wsdl at time of generation; it will be used at runtime as well, so it must be accessible from http client gw"
+        },
+        "meta.wsdlBinding": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the binding used from wsdl"
+        },
+        "meta.wsdlOperation": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sendSmsRingtone",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the operation used from wsdl"
+        }
+    },
+    "events": [
+        "returns same events as the one received"
+    ],
+    "noextraevents": true,
+    "shapeStyle": "image;html=1;image=clipart/soap-request.png",
+    "label": "sendSmsRingtone",
+    "explanation": "Build a SOAP request object",
+    "searchtags": "soap wsdl",
+    "showExplanation": true,
+    "showLabel": true,
+    "width": 120,
+    "height": 60,
+    "xmltag": "soap-message"
+  }
+  
+  ,"io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_sendSmsRingtone_response": {
+    "title": "Build an object ready to be serialized into a SOAP message",
+    "help": [
+      "This handler builds into the session an object that has the correct structure to serialize a SOAP message. It supports SOAP 1.2 and WSDL 1.1"
+    ],
+    "attributes": {
+        "name": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "name of the object in session where payload is generated; this should be used in http client handler"
+        }
+        
+        ,"Envelope.Body.sendSmsRingtoneResponse.result": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"meta.wsdlName": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sms.wsdl_SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the name of wsdl"
+        },
+        "meta.wsdlUrl": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "file:///tmp/sms.wsdl",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the url of wsdl at time of generation; it will be used at runtime as well, so it must be accessible from http client gw"
+        },
+        "meta.wsdlBinding": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the binding used from wsdl"
+        },
+        "meta.wsdlOperation": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sendSmsRingtone",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the operation used from wsdl"
+        }
+    },
+    "events": [
+        "returns same events as the one received"
+    ],
+    "noextraevents": true,
+    "shapeStyle": "image;html=1;image=clipart/soap-response.png",
+    "label": "sendSmsRingtone",
+    "explanation": "Build a SOAP response object",
+    "searchtags": "soap wsdl",
+    "showExplanation": true,
+    "showLabel": true,
+    "width": 120,
+    "height": 60,
+    "xmltag": "soap-message"
+  }
+  
+  ,"io.qsrlabs.nexus.middleware.scxml.handlers.SoapObjectBuilder#sms.wsdl_SendSmsBinding_sendSmsRingtone_fault": {
+    "title": "Build an object ready to be serialized into a SOAP message",
+    "help": [
+      "This handler builds into the session an object that has the correct structure to serialize a SOAP message. It supports SOAP 1.2 and WSDL 1.1"
+    ],
+    "attributes": {
+        "name": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "name of the object in session where payload is generated; this should be used in http client handler"
+        }
+        
+        ,"Envelope.Body.Fault.faultcode": {
+          "type": "QName",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is QName"
+        }
+        
+        ,"Envelope.Body.Fault.faultstring.__attrs.lang": {
+          "type": "string",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is string"
+        }
+        
+        ,"Envelope.Body.Fault.faultstring": {
+          "type": "",
+          "defaultVisible": true,
+          "mandatory": false,
+          "help": "type of attribute is "
+        }
+        
+        ,"Envelope.Body.Fault.faultactor": {
+          "type": "anyURI",
+          "defaultVisible": true,
+          "mandatory": true,
+          "help": "type of attribute is anyURI"
+        }
+        
+        ,"meta.wsdlName": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sms.wsdl_SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the name of wsdl"
+        },
+        "meta.wsdlUrl": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "file:///tmp/sms.wsdl",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the url of wsdl at time of generation; it will be used at runtime as well, so it must be accessible from http client gw"
+        },
+        "meta.wsdlBinding": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "SendSmsBinding",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the binding used from wsdl"
+        },
+        "meta.wsdlOperation": {
+          "type": "string",
+          "defaultVisible": false,
+          "defaultValue": "sendSmsRingtone",
+          "mandatory": true,
+          "help": "meta information, not to be changed by user, containing the operation used from wsdl"
+        }
+    },
+    "events": [
+        "returns same events as the one received"
+    ],
+    "noextraevents": true,
+    "shapeStyle": "image;html=1;image=clipart/soap-fault.png",
+    "label": "sendSmsRingtone",
+    "explanation": "Build a SOAP fault object",
+    "searchtags": "soap wsdl",
+    "showExplanation": true,
+    "showLabel": true,
+    "width": 120,
+    "height": 60,
+    "xmltag": "soap-message"
+  }
+  
+}
