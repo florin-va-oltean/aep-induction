@@ -185,23 +185,26 @@ you need to specify:
   - which operation from WSDL to use based on `soap action`; soap action is retrieved from http header `SOAPAction` (in case of SOAP 1.1) or http header `Content-Type` (in case of SOAP 1.2); if no `soap action` is specified, you can configure a defualt operation to use 
   - here is a sample of `soap` section added to http server config; it specified both default operation (`none`) as well as `sendSms` action to operation mapping. 
 ```shell
- "soap": {
-      "/gp/services/SendSmsPx21": {
-        "wsdl": "file:///tmp/sms.wsdl",
+"soap": {
+    "/gp/services/SendSmsPx21": {
+        "wsdl": "http://ip:port/projects/common/induction/palette/sms.wsdl_SendSmsBinding.wsdl",
         "content-type": {
-          "text/xml": "SendSmsBinding"
+            "text/xml": "SendSmsBinding"
         },
         "soap-action": {
-          "none": "sendSms",
-          "sendSms":"sendSms"
+            "none": "sendSms",
+            "sendSms":"sendSms"
         }
-      }
-    },
+    }
+},
 ```
+  - replace `ip` and `port` with your server `ip` and `port` (where gui is running)
 
 4. You can use the new palette shapes that are generated after point 1 to build a new flow
     - for responding to soap requests (act as a server) you must configure http server gateway as per point 3 above
     - for making soap requests and receiving back answers, there is no special configuration to do excepting 1 and 2 above. 
+
+> note: the example configured here (and the palette already imported in this project) assumes the wsdl file is in `/tmp/sms.wsdl`. You probably need to make sure it is everywhere.
 
 that's all
 
