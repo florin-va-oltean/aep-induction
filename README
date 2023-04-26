@@ -170,3 +170,25 @@ is only for demonstration; in fact, the AEP platform is able to receive an event
 3. how to generate cdrs ()
 
 
+## SOAP - later addition
+
+In order to use SOAP 1.1 or SOAP 1.2 based on WSDL 1.1, one must do the following steps:
+
+1. import the WSDL via `Custom palettes` menu; the application will create a palette drawer for each operation in the specified binding
+2. the WSDL file must be available from GUI backend server (where `nexus-gui-backend` is runing), from http client gateway and from http server gateway. 
+  - The best idea is to have a central http server serving WSDL files (let's say a nginx instance) and all apps can use the same URL to access the WSDL. 
+  - Alternatively, you can put the WSDL file in the same location on all servers; if you have several gateways on different servers, you must copy the file everywhere
+3. you must configure the http server gateway to process SOAP; same HTTP server gateway may handle several SOAP services and non-SOAP services in parallel, so 
+you need to specify:
+  - which URLs are asigned to SOAP requests; for these URLs the server gateway will treat requests as SOAP and will attempt to decode it based on WSDL specs
+  - which binding from WSDL to use based on `Content-Type` http header
+  - which operation from WSDL to use based on `soap action`; soap action is retrieved from http header `SOAPAction` (in case of SOAP 1.1) or http header `Content-Type` (in case of SOAP 1.2); if no `soap action` is specified, you can configure a defualt operation to use 
+
+```shell
+ 
+```
+
+4. You can use the new palette shapes that are generated after point 1 to build a new flow 
+
+that's all
+
