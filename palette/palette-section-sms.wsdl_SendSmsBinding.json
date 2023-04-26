@@ -1,0 +1,6 @@
+{
+  "sms.wsdl_SendSmsBinding":{
+    "file":"sms.wsdl_SendSmsBinding.json",
+    "label": "sms.wsdl_SendSmsBinding"
+  }
+}
