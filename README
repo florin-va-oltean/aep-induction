@@ -159,6 +159,12 @@ If it is exceeded, we return http 404 (not found) and a short message describing
 curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_5"
 ```
 
+## Test step 6
+
+We add a CDR handler as last step; this will generate a cdr file with some useless (for the purpose of test) information to describe the idea. 
+
+> Important: notice that we don't have a shape with STOP any longer; however, the CDR handler got the parameter "isfinal" set to "yes". In general, you can mark any
+state as final simply by inserting the parameter "isfinal" set to "yes". 
 
 ## Next ....
 
