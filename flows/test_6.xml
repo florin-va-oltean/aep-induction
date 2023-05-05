@@ -43,6 +43,7 @@
                      status="spel:#initial[&#34;status&#34;]"
                      body="spel:#session[&#34;response&#34;]"
                      header.Content-Type="application/json"
+                     continue="yes"
                      id="9">
          <mxCell style="image;html=1;image=clipart/http-response.png" parent="1" vertex="1">
             <mxGeometry x="1030" y="300" width="120" height="60" as="geometry"/>
@@ -203,6 +204,7 @@
                      status="spel: 404"
                      body="spel: #session[&#34;response&#34;]"
                      header.Content-Type="application/json"
+                     continue="yes"
                      id="50">
          <mxCell style="image;html=1;image=clipart/http-response.png" parent="1" vertex="1">
             <mxGeometry x="1030" y="450" width="120" height="60" as="geometry"/>
@@ -281,20 +283,20 @@
                    segment="test"
                    isfinal="yes"
                    id="62">
-         <mxCell style="image;html=1;image=clipart/cdr.png" vertex="1" parent="1">
+         <mxCell style="image;html=1;image=clipart/cdr.png" parent="1" vertex="1">
             <mxGeometry x="1200" y="300" width="120" height="60" as="geometry"/>
          </mxCell>
       </cdr-request>
-      <mxCell id="63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1"
-              parent="1"
+      <mxCell id="63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1"
               source="9"
-              target="62">
+              target="62"
+              edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
-      <mxCell id="64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1"
-              parent="1"
+      <mxCell id="64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" parent="1"
               source="50"
-              target="62">
+              target="62"
+              edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
