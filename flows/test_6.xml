@@ -238,44 +238,6 @@
               edge="1">
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
-      <mxCell id="56"
-              value="This is creating/modifying variables in session, so they are available to other states as well.&#xA;We use it to initialize the loop counter and to increment it."
-              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              parent="1"
-              vertex="1">
-         <mxGeometry x="245" y="480" width="170" height="100" as="geometry"/>
-      </mxCell>
-      <mxCell id="57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;"
-              parent="1"
-              source="56"
-              target="39"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
-      <mxCell id="58" style="rounded=0;html=1;dashed=1;" parent="1" source="56" target="51"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
-      <mxCell id="59"
-              value="This is a check to break the loop&#xA;In this case we send back HTTP 404 (not found) and a short message to explain."
-              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;"
-              parent="1"
-              vertex="1">
-         <mxGeometry x="840" y="590" width="170" height="80" as="geometry"/>
-      </mxCell>
-      <mxCell id="60" style="edgeStyle=none;rounded=0;html=1;dashed=1;" parent="1"
-              source="59"
-              target="45"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
-      <mxCell id="61" style="edgeStyle=none;rounded=0;html=1;entryX=0;entryY=0.75;dashed=1;"
-              parent="1"
-              source="59"
-              target="50"
-              edge="1">
-         <mxGeometry relative="1" as="geometry"/>
-      </mxCell>
       <cdr-request action="io.qsrlabs.nexus.cdr.CdrRequestHandler" label="Generate file CDR"
                    queue="cdr-in-queue"
                    template="dev"
@@ -298,6 +260,13 @@
               target="62"
               edge="1">
          <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+      <mxCell id="65"
+              value="We added parameter &#34;continue&#34; to the handler; this will send back the answer AND continue with the flow. &#xA;&#xA;Important: &#xA; 1. as state machine executes, an answer is normally sent back to network when state machine stabilizes (i.e. it finishes all possible transitions or reaches a final state, such as stop or a state that has &#34;isfinal&#34; set to &#34;yes&#34;)&#xA; 2. state machine stabilizes when there is no transition to follow out of a state (no outgoing arrow that could be follow)&#xA; 3. the algorithm to follow select transitions is: &#xA;     - first, the transition having a label that matches the current event is searched and if found, it is followed; the match can be based on *, such as http.* .Longest match is selected, most specific, if multiple transitions are matching current event. &#xA;     - second, the transition that has only * is selected, because it matches all events. &#xA;     - third and last, if there is a transition without any label, not event *, than this is selected. The difference between &#34;no label&#34; and &#34;*&#34; is that the &#34;*&#34; requires an event (any event, but an event) to be active; while empty transitions are followed even if there is no event active. &#xA; &#xA;So, in our example, we have &#34;send back response prepared previously&#34; state that prepares the http response (status, headers, body, to be sent), but because there is an empty transition (arrow with no label), the state machine does not stabilize and it follows the transition; because it does not stabilize, the prepared message to network is not send; the state machine follows the empty transition and reaches final state &#34;generate file CDR&#34; that prepares another message (to generate CDR, thus discarding what was prepared by previous state). Now, state machine sends the command to generate the CDR and stops. We need the parameter &#34;continue&#34; to &#34;send back response prepared previously&#34; to not loose the response generated at this shape, but send it right away and continue with elected transition.&#xA;&#xA;     "
+              style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;fontStyle=0;strokeColor=#000000;"
+              vertex="1"
+              parent="1">
+         <mxGeometry x="860" y="540" width="640" height="370" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
