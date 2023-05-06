@@ -241,9 +241,7 @@
       <cdr-request action="io.qsrlabs.nexus.cdr.CdrRequestHandler" label="Generate file CDR"
                    queue="cdr-in-queue"
                    template="dev"
-                   category="spel:1"
-                   segment="test"
-                   isfinal="yes"
+                   ref="spel:#session[&#34;response&#34;]"
                    id="62">
          <mxCell style="image;html=1;image=clipart/cdr.png" parent="1" vertex="1">
             <mxGeometry x="1200" y="300" width="120" height="60" as="geometry"/>
@@ -262,11 +260,25 @@
          <mxGeometry relative="1" as="geometry"/>
       </mxCell>
       <mxCell id="65"
-              value="We added parameter &#34;continue&#34; to the handler; this will send back the answer AND continue with the flow. &#xA;&#xA;Important: &#xA; 1. as state machine executes, an answer is normally sent back to network when state machine stabilizes (i.e. it finishes all possible transitions or reaches a final state, such as stop or a state that has &#34;isfinal&#34; set to &#34;yes&#34;)&#xA; 2. state machine stabilizes when there is no transition to follow out of a state (no outgoing arrow that could be follow)&#xA; 3. the algorithm to follow select transitions is: &#xA;     - first, the transition having a label that matches the current event is searched and if found, it is followed; the match can be based on *, such as http.* .Longest match is selected, most specific, if multiple transitions are matching current event. &#xA;     - second, the transition that has only * is selected, because it matches all events. &#xA;     - third and last, if there is a transition without any label, not event *, than this is selected. The difference between &#34;no label&#34; and &#34;*&#34; is that the &#34;*&#34; requires an event (any event, but an event) to be active; while empty transitions are followed even if there is no event active. &#xA; &#xA;So, in our example, we have &#34;send back response prepared previously&#34; state that prepares the http response (status, headers, body, to be sent), but because there is an empty transition (arrow with no label), the state machine does not stabilize and it follows the transition; because it does not stabilize, the prepared message to network is not send; the state machine follows the empty transition and reaches final state &#34;generate file CDR&#34; that prepares another message (to generate CDR, thus discarding what was prepared by previous state). Now, state machine sends the command to generate the CDR and stops. We need the parameter &#34;continue&#34; to &#34;send back response prepared previously&#34; to not loose the response generated at this shape, but send it right away and continue with elected transition.&#xA;&#xA;     "
+              value="We added parameter &#34;continue&#34; to the handler; this will send back the answer AND continue with the flow. &#xA;&#xA;another possible configuration: cdr handler is not using continue parameter, and we put an explicit stop to the flow&#xA;&#xA;     "
               style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;fillColor=#FFFFCC;fontStyle=0;strokeColor=#000000;"
-              vertex="1"
-              parent="1">
-         <mxGeometry x="860" y="540" width="640" height="370" as="geometry"/>
+              parent="1"
+              vertex="1">
+         <mxGeometry x="1200" y="500" width="390" height="70" as="geometry"/>
+      </mxCell>
+      <stop action="com.eitg.quasar.nexus.middleware.scxml.handlers.StopHandler"
+            label="Stop"
+            isfinal="yes"
+            id="66">
+         <mxCell style="image;html=1;image=clipart/plain-stop.png" vertex="1" parent="1">
+            <mxGeometry x="1390" y="290" width="80" height="80" as="geometry"/>
+         </mxCell>
+      </stop>
+      <mxCell id="67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1"
+              parent="1"
+              source="62"
+              target="66">
+         <mxGeometry relative="1" as="geometry"/>
       </mxCell>
    </root>
 </mxGraphModel>
