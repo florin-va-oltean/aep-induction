@@ -159,12 +159,35 @@ If it is exceeded, we return http 404 (not found) and a short message describing
 curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_5"
 ```
 
-## Test step 6
+## Test step 6 - how state machine works
 
-We add a CDR handler as last step; this will generate a cdr file with some useless (for the purpose of test) information to describe the idea. 
+We add a CDR handler ; this will generate a cdr file containing the response sent to the http client (for the purpose of test). More importantly, it will give
+us a chance to discuss how the engine moves from one state to another. 
 
-> Important: notice that we don't have a shape with STOP any longer; however, the CDR handler got the parameter "isfinal" set to "yes". In general, you can mark any
-state as final simply by inserting the parameter "isfinal" set to "yes". 
+### How state machine works and transitions from one state to another are selected
+
+The state machine is permanently waiting for events; when an event comes, and the state machine to execute is selected via `dispatch script`, we will do the following steps:
+1. check if there is a session and if it is, restore the state machine (position the current state) to the state stored in the session (so it can continue where it left off). If there is no session, it means there is no stored current state, and we automatically
+select the start state as current state. 
+2. once we have a current state, we compare the transitions (outgoing arrows) with the event name and apply the following algorithm, in this order;
+    - exact match between event name and label on the arrow; if a match is found, we will follow that transition and move the current state to the end of arrow
+    - most specific match when using `text.*` (i.e. `http.*` for example)
+    - "*" matches any event
+    - if there is an arrow/transition without any label on it, it will be followed (as last option) even if there is no event. 
+3. the state machine will apply repeatedly step 2, following transition/arrows and executing states, until it cannot match any more any transitions or it reaches a final state
+    - when it cannot match any transition, but not in final state, we call this that state machine is **stabilized**; the engine will park in redis the session (so that it can be restored when an event comes, possibly on 
+    another instance of rte)
+    - when it reaches final state, either STOP or a state marked with parameter `isfinal` set to `yes`, the state machine terminates. 
+
+### When the answer is sent back 
+
+As the flow progresses/traverses states, each state executes and may compute a response; however, the state machine is only sending back the response when it is stabilized or when it is reaching a final state.
+By default, the engine will only send back one response (or one outgoing message), and this is the last response computed while traversing the states. So in normal configuration, 
+if you have one http response handler (that builds actually an http response) followed by an empty (no label) transition and a cdr handler (asking to generate a cdr), the http response handler output
+is lost, because it is overwriten by the cdr handler; state machine will retain the last request/command/output message. 
+
+In order to avoid this, you must use `continue` parameter with value `yes`, that will actually instruct the state machine to first send the response and immediately after continue the flow. In this way, 
+based on previous example, the http response will be sent, than transition is followed, cdr handler request is build, and when reaching the stop state, this cdr request is sent as well.
 
 ## Next ....
 
