@@ -21,7 +21,7 @@ This project uses the following components:
 
 > :point_left: These components can be seen at `Runtime view` / `Processes` in the left menu sidebar
 
-Also, we make use of the api at https://www.boredapi.com/api/activity , so you must be able to access from VM this public internet site.
+Also, we make use of the api at https://bored.api.lewagon.com/api/activity , so you must be able to access from VM this public internet site.
 
 The sequence diagram of this sample application/service is the following:
 ```
@@ -68,7 +68,7 @@ Now you are good to go :fireworks: !
 In this step, you will execute flow test_1 which does not do anything; but it shows how you can do tracing. 
 
 ```bash
-curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_1"
+curl -k "https://web.aep.qsrlab.io:8443/test?flowname=test:induction:test_1"
 ```
 
 Go to AEP GUI, Runtime View (left side menu), Traces and from drop down box `Flows?` select the flow `induction:test_1` and in the table you should see a row for each session that used this flow. 
@@ -100,7 +100,7 @@ In this step, we will execute the flow "test_2"; you can open it up (left side m
 Run the statement:
 
 ```bash
-curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_2"
+curl -k "https://web.aep.qsrlab.io:8443/test?flowname=test:induction:test_2"
 ```
 
 You should receive back the proverbial "Hello World!" message! 
@@ -117,7 +117,7 @@ What you should pay attention to this time:
 Now, we will actually invoke an [external API](https://www.boredapi.com/api/activity) . 
 
 ```bash
-curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_3"
+curl -k "https://web.aep.qsrlab.io:8443/test?flowname=test:induction:test_3"
 ```
 
 You should receive back a suggestion how to spend your free time (and no, it is not suggesting to work at computer :smile: ). If there is no network connection to internet, an error will be received. 
@@ -143,7 +143,7 @@ At this step:
 How to invoke:
 
 ```shell
-curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_4"
+curl -k "https://web.aep.qsrlab.io:8443/test?flowname=test:induction:test_4"
 ```
 
 ## Test step 5
@@ -156,7 +156,7 @@ exceeded.
 If it is exceeded, we return http 404 (not found) and a short message describing the situation. 
 
 ```shell
-curl -k "https://10.211.55.4:8883/test?flowname=test:induction:test_5"
+curl -k "https://web.aep.qsrlab.io:8443/test?flowname=test:induction:test_5"
 ```
 
 ## Test step 6 - how state machine works

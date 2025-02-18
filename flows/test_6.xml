@@ -52,7 +52,7 @@
       <http-client-request action="io.qsrlabs.nexus.redis.http.gui.RequestHandler" label="bored api"
                            queue="http-requests"
                            queue-db="queue-db"
-                           url="https://www.boredapi.com/api/activity"
+                           url="https://bored.api.lewagon.com/api/activity"
                            timeout-ms="spel:2000"
                            request-method="get"
                            header.Accept="application/json"
